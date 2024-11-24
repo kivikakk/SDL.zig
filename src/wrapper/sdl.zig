@@ -879,8 +879,7 @@ pub const Renderer = struct {
         var width_pixels: c_int = undefined;
         var height_pixels: c_int = undefined;
 
-        if (c.SDL_RenderGetLogicalSize(ren.ptr, &width_pixels, &height_pixels) < 0)
-            return makeError();
+        c.SDL_RenderGetLogicalSize(ren.ptr, &width_pixels, &height_pixels);
         return Size{
             .width = width_pixels,
             .height = height_pixels,
